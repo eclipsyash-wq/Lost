@@ -1,7 +1,3 @@
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-# 💳 Charged Proxies — 111
-# 🔖 Developed by @iykluffy
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 51.146.137.77:61234:user_cb5c8d152e1c:JLKDFHbf
 23.188.208.26:58049:MamunBoss:Update_Verizon
 51.146.138.10:61234:user_0c04fc78dc44:ROc1Y3Ux
