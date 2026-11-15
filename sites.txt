@@ -1,9 +1,3 @@
-# Owner: @dazzelerx
-# Bucket: 0-1
-# Total: 2828
-# Generated: 2026-11-13 17:33:34
-#==================================================
-
 curiositysupply.myshopify.com
 strokes-test.myshopify.com
 kundalini-millennium.myshopify.com
