@@ -24,7 +24,7 @@ SHOPIFY_APIS = [
 PREMIUM_EMOJI_IDS = {
     "💳": "5445353829304387411",
     "✅": "4956721670690702265", "❌": "4958526153955476488", "🔥": "4956499161319998529",
-    "⚡": "4958479549265347295", "💳": "5472250091332993630", "💠": "5343636681473935403",
+    "⚡": "4958479549265347295", "💠": "5343636681473935403",
     "📝": "5343649643685240676", "🌐": "5447602197439218445", "📊": "5042290883949495533",
     "📦": "5303102515301083665", "📋": "4904936030232117798", "⏳": "5258113901106580375",
     "🚀": "4904936030232117798", "⚠️": "4956611513369494230", "💎": "4956719506027185156",
@@ -44,13 +44,12 @@ PREMIUM_EMOJI_IDS = {
     "🎉": "5172632227871196306", "🎁": "6025929752982852543", "🚫": "5116151848855667552",
     "🛒": "5312361253610475399", "🔧": "4904936030232117798", "😎": "6062275913725252016",
     "⛔️": "5275969776668134187", "🥲": "4904468402782864209", "💐": "5211171480519337811",
-    "☠️": "5231338559587257737", "🛡": "5219672809936006424", "🥰": "5881784744949062058", 
-    "😱": "5868517294618975202", "📸": "5445344161333015312", "💬": "5447510826304959724",
-    "😺": "5118590136149345664", "🌍": "4956560549287560231", "😎": "6062275913725252016",
+    "☠️": "5231338559587257737", "🛡": "5219672809936006424", "📸": "5445344161333015312",
+    "💬": "5447510826304959724", "😺": "5118590136149345664", "🌍": "4956560549287560231",
     "🤓": "5422553316808730347", "🔹": "5429436388447655367", "📹": "5445158077579952110", 
     "📡": "5447448489149625830", "🌟": "5310224206732996002", "✳": "5040071927750722576", 
     "📍": "5447187153274567373", "🔐": "5258476306152038031", "✴": "6321225560789877992", 
-    "😇": "6321225560789877992", "👌": "5445350109862720603", "❇": "5039727497143387500", 
+    "😇": "5195033767969839232", "👌": "5445350109862720603", "❇": "5039727497143387500", 
     "⭐": "5042176294222037888", "🍭": "6267152480878990865", "🤠": "5377396889652060561", 
     "⚙️": "5258023599419171861", "⛔": "4918014360267260850", "0️⃣": "6053163053980063912", 
     "❣️": "4956222745814762495", "1️⃣": "6052991826518873591", "🕛": "5787488119490088755", 
@@ -61,14 +60,13 @@ PREMIUM_EMOJI_IDS = {
     "🥶": "5283232570660634549", "🌻": "6332197763417118285", "📩": "6154448909784585982", 
     "😋": "4958642964181025908", "♻": "4956719506027185156", "🟠": "5825848340721438908", 
     "😛": "4958900559139570572", "🔴": "4956719506027185156", "🟢": "6235478849417647339", 
-    "🤪": "5332455502917949981", "🔶": "5123248930124989216", "🌍": "5224450179368767019",
+    "🤪": "5332455502917949981", "🔶": "5123248930124989216",
     "🏅": "5780864206177834457", "🥇": "5769547529993588669", "🥈": "6156436440260549720", 
     "🥉": "6235355429237430006", "🏆": "6235403472741603087", "🤭": "5825806005228803076",
     "😄": "5438571934210082705", "🧨": "5989927820984327321", "🌌": "5990181988558969463",
-    "😇": "5195033767969839232", "🧐": "5825779518165488504", "🕘": "5258113901106580375",
-    "✨": "6298612102709909362", "⚡️": "5042334757040423886", "🎉": "6282977077427702833",
-    "💀": "6206110936789423908", "🎁": "6066395745139824604", "🌟": "5267500801240092311",
-    "🤖": "5039727497143387500", "⏸️": "6001440193058444284", "▶️": "6285315214673975495",
+    "🧐": "5825779518165488504", "🕘": "5258113901106580375",
+    "✨": "6298612102709909362", "⚡️": "5042334757040423886", "🤖": "5039727497143387500", 
+    "⏸️": "6001440193058444284", "▶️": "6285315214673975495",
     "🛑": "5420323339723881652", "🔙": "6285315214673975495", "🏠": "6282977077427702833",
 }
 
@@ -96,7 +94,7 @@ STATS_FILE = 'stats.json'
 START_VIDEO_FILE = 'start_video.txt'
 GIFS_FILE = 'gifs.txt'
 
-WORKER_COUNT = 150
+WORKER_COUNT = 40
 PROGRESS_UPDATE_INTERVAL = 2.0
 MAX_RETRIES = 15
 
@@ -389,7 +387,7 @@ async def check_card(card, site, proxy):
 
         response_msg = str(raw.get('Response', '')).strip()
         price = raw.get('Price', '-')
-        gate = raw.get('Gateway', raw.get('Gate', '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮'))
+        gate = raw.get('Gateway', raw.get('Gate', 'Rowdy Shopify'))
         status = raw.get('Status', '')
         api_status = raw.get('Status', False)
 
@@ -513,7 +511,7 @@ async def check_card(card, site, proxy):
             'message': 'Request timeout',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
+            'gateway': 'Rowdy Shopify',
             'price': '-',
             'site': site
         }
@@ -528,7 +526,7 @@ async def check_card(card, site, proxy):
             'message': f'Invalid JSON: {str(e)[:50]}',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
+            'gateway': 'Rowdy Shopify',
             'price': '-',
             'site': site
         }
@@ -543,7 +541,7 @@ async def check_card(card, site, proxy):
             'message': f'Error: {str(e)[:80]}',
             'card': card,
             'retry': True,
-            'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮',
+            'gateway': 'Rowdy Shopify',
             'price': '-',
             'site': site
         }
@@ -553,9 +551,9 @@ API_FAIL_LOCK = asyncio.Lock()
 
 async def check_card_with_retry(card, sites, proxies, max_retries=MAX_RETRIES):
     if not sites:
-        return {'status': 'Dead', 'message': 'No sites available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
+        return {'status': 'Dead', 'message': 'No sites available', 'card': card, 'gateway': 'Rowdy Shopify', 'price': '-', 'site': None}
     if not proxies:
-        return {'status': 'Dead', 'message': 'No proxies available', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
+        return {'status': 'Dead', 'message': 'No proxies available', 'card': card, 'gateway': 'Rowdy Shopify', 'price': '-', 'site': None}
 
     used_sites = set()
     used_proxies = set()
@@ -582,7 +580,7 @@ async def check_card_with_retry(card, sites, proxies, max_retries=MAX_RETRIES):
         if attempt < max_retries - 2:
             await asyncio.sleep(0.3)
 
-    return {'status': 'Dead', 'message': 'Max retries exceeded', 'card': card, 'gateway': '𝘼𝙪𝙩𝙤 𝙎𝙝𝙤𝙥𝙞𝙛𝙮', 'price': '-', 'site': None}
+    return {'status': 'Dead', 'message': 'Max retries exceeded', 'card': card, 'gateway': 'Rowdy Shopify', 'price': '-', 'site': None}
 
 async def update_progress(user_id, message_id, results, current_attempt_count, first_name="User"):
     elapsed = int(time.time() - results['start_time'])
@@ -667,7 +665,7 @@ async def send_start_video_and_welcome(user_id, username, page="home"):
     else:
         plan = "🆓 Free"
     
-    welcome_text = f"""<b>[⌯] 𝗕𝗼𝘁 ⌁ Zayn X Chk ⌁ ⚡</b>
+    welcome_text = f"""<b>[⌯] 𝗕𝗼𝘁 ⌁ Rowdy X Chk ⌁ ⚡</b>
 <b>[⌯] 𝗧𝘆𝗽𝗲 ⌁ 𝙿𝚛𝚎𝚖𝚒𝚞𝚖 𝙲𝙲 𝙲𝚑𝚎𝚌𝚔𝚎𝚛 ⌁ ⚡</b> 
 
 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
@@ -681,20 +679,20 @@ async def send_start_video_and_welcome(user_id, username, page="home"):
 
 <b>[⌯] 𝗠𝗲𝗻𝘂 ⌁ 𝚂𝚎𝚕𝚎𝚌𝚝 𝚘𝚙𝚝𝚒𝚘𝚗 𝚋𝚎𝚕𝚘𝚠 ⌁ ⚡</b>"""
 
-
-        main_buttons = [
-            [
-                Button.inline("ᴄʜᴇᴄᴋᴇʀ", "show_cmds"),
-                Button.inline("ʙᴜʏ ɴᴏᴡ", "owner_redirect"),
-            ],
-            [
-                Button.inline("ᴛᴏᴏʟs", "tools_redirect"),
-                Button.inline("sᴜᴘᴘᴏʀᴛ", b"support_menu", style="primary"),
-            ],
-            [
-                Button.url("ᴜᴘᴅᴀᴛᴇs", f"https://t.me/+I_2VKfDzJKIyOTQ1"),
-                Button.url("ɢʀᴏᴜᴘ", f"https://t.me/+nPZ8PTVPs4AxNTY1"),
-                ]]
+    buttons = [
+        [
+            Button.inline("ᴄʜᴇᴄᴋᴇʀ", "show_cmds"),
+            Button.inline("ʙᴜʏ ɴᴏᴡ", "owner_redirect"),
+        ],
+        [
+            Button.inline("ᴛᴏᴏʟs", "tools_redirect"),
+            Button.inline("sᴜᴘᴘᴏʀᴛ", b"support_menu", style="primary"),
+        ],
+        [
+            Button.url("ᴜᴘᴅᴀᴛᴇs", ""),
+            Button.url("ɢʀᴏᴜᴘ", ""),
+        ]
+    ]
 
     try:
         if start_videos:
@@ -715,16 +713,17 @@ async def send_result_with_gif(user_id, message, gif=None):
         gif = await get_random_gif()
     try:
         if gif:
-            await bot.send_file(user_id, gif, caption=premium_emoji(message), parse_mode='html')
+            msg = await bot.send_file(user_id, gif, caption=premium_emoji(message), parse_mode='html')
         else:
-            await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
+            msg = await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
+        return msg
     except Exception as e:
         print(f"Error sending result: {e}")
-        # Fallback - send without gif
         try:
-            await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
+            msg = await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
+            return msg
         except:
-            pass
+            return None
 
 async def send_otp_result(user_id, result, username):
     full_card = result['card']
@@ -758,7 +757,7 @@ async def send_otp_result(user_id, result, username):
 <b>[⌯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ⌁</b> {country} {flag}
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>
 <b>[⌯] 𝐂𝐡𝐞𝐜𝐤𝐞𝐝 𝐁𝐲⌁</b> @{username} [{user_role}]
-<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ZAYN X CHKR
+<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ROWDY X CHK
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>"""
     await send_result_with_gif(user_id, message)
 
@@ -796,9 +795,14 @@ async def send_animated_result(user_id, result, hit_type, username, is_premium_u
 <b>[⌯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ⌁</b> {country} {flag}
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>
 <b>[⌯] 𝐂𝐡𝐞𝐜𝐤𝐞𝐝 𝐁𝐲⌁</b> @{username} [{user_role}]
-<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ZAYN X CHKR
+<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ROWDY X CHK
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>"""
-    await send_result_with_gif(user_id, message)
+    msg = await send_result_with_gif(user_id, message)
+    if hit_type == "Charged" and msg:
+        try:
+            await msg.pin()
+        except Exception as e:
+            print(f"Error pinning message: {e}")
 
 async def send_dead_result(user_id, result, username):
     full_card = result['card']
@@ -825,7 +829,7 @@ async def send_dead_result(user_id, result, username):
 <b>[⌯] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆 ⌁</b> {country} {flag}
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>
 <b>[⌯] 𝐂𝐡𝐞𝐜𝐤𝐞𝐝 𝐁𝐲⌁</b> @{username} [{user_role}]
-<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ZAYN X CHKR
+<b>[⌯] 𝗖𝗵𝗲𝗰𝗸𝗲𝗿 ⌁ ⚡ ROWDY X CHK
 <b>─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</b>"""
     await send_result_with_gif(user_id, message)
 
@@ -868,14 +872,14 @@ async def send_final_results(user_id, results):
 <b>💥 𝐓𝐎𝐏 𝐇𝐈𝐓𝐒</b>
 {hits_preview}
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>⏰ {current_time} | 🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>⏰ {current_time} | 🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"zayn_chkr_{user_id}_{timestamp}.txt"
+    filename = f"rowdy_chkr_{user_id}_{timestamp}.txt"
 
     async with aiofiles.open(filename, 'w', encoding='utf-8') as f:
         await f.write("=" * 80 + "\n")
-        await f.write("✦ 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 ✦\n")
+        await f.write("✦ Rowdy x Chkr ✦\n")
         await f.write("=" * 80 + "\n\n")
         await f.write(f"📊 Total: {results['total']} | ✅ Charged: {len(results['charged'])} | ✅ Approved: {len(results['approved'])} | ❌ Dead: {len(results['dead'])} | ⚠️ Errors: {error_count}\n")
         await f.write(f"🔗 Gateway: {gateway} | ⏱️ Time: {hours:02d}h {minutes:02d}m {seconds:02d}s\n\n")
@@ -918,7 +922,7 @@ async def send_final_results(user_id, results):
             await f.write("\n")
 
         await f.write("=" * 80 + "\n")
-        await f.write("✦ Generated by 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 𝔹𝕆𝕋 ✦\n")
+        await f.write("✦ Generated by Rowdy x Chkr 𝔹𝕆𝕋 ✦\n")
 
     buttons = [
         [Button.inline("📊 View Report", "view_report")],
@@ -948,10 +952,6 @@ async def generate_cards_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
     
     try:
@@ -1048,7 +1048,7 @@ async def bin_lookup_command(event):
 <b>📊 Level :</b> {level}
 <b>🌎 Country :</b> {country} {flag}
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
         
         await status_msg.delete()
         await bot.send_message(user_id, premium_emoji(message), parse_mode='html')
@@ -1062,10 +1062,6 @@ async def clean_cards_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
     
     if not event.reply_to_msg_id:
@@ -1121,10 +1117,6 @@ async def split_file_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
     
     if not event.reply_to_msg_id:
@@ -1205,10 +1197,6 @@ async def merge_files_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
     
     if not event.reply_to_msg_id:
@@ -1310,10 +1298,6 @@ async def validate_cards_command(event):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
     
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
-    
     if not event.reply_to_msg_id:
         await event.reply(premium_emoji("❌ <b>Reply to a .txt file</b>"), parse_mode='html')
         return
@@ -1391,10 +1375,6 @@ async def convert_format_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
     
     try:
@@ -1479,7 +1459,7 @@ async def admin_panel(event):
         await event.reply(premium_emoji("❌ <b>Access Denied</b>"), parse_mode='html')
         return
     
-    menu = f"""<b>𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿</b>
+    menu = f"""<b>Rowdy X Chk</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
 <b>👥 𝐔𝐬𝐞𝐫 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭</b>
@@ -1529,7 +1509,7 @@ async def admin_panel(event):
 /restart           - Restart bot</code>
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
     
     await event.reply(premium_emoji(menu), parse_mode='html')
 
@@ -1849,7 +1829,7 @@ GIFs     : {len(gifs)}</code>
 <code>{hours}h {minutes}m</code>
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
     
     await event.reply(premium_emoji(message), parse_mode='html')
 
@@ -2443,40 +2423,24 @@ async def show_cmds_callback(event):
     except:
         pass
     
-    cmds_text = f"""<b>📋 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊</b>
+    cmds_text = f"""<b>📋 Rowdy X Chk ℂ𝕆𝕄𝕄𝔸ℕ𝔻𝕊</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
 <b>⚡ 𝐂𝐂 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬</b>
-<code>/cc card|mm|yy|cvv  - Check single CC
-/chk                   - Reply to .txt file</code>
+<code>/sh card|mm|yy|cvv  - Check single CC</code>
+<code>/msh                   - Reply to .txt file</code>
 
 <b>🛠️ 𝐓𝐨𝐨𝐥𝐬</b>
-<code>/gen [BIN] [count]  - Generate CCs
-/bin [BIN]            - BIN lookup
-/clean                - Remove dead/expired
-/split [lines]        - Split file
-/merge                - Merge files
-/validate             - Validate cards
-/convert [format]     - Convert format</code>
-
-<b>⚡ 𝐒𝐢𝐭𝐞 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬</b>
-<code>/site                - Check & clean sites
-/rm url              - Remove a site</code>
-
-<b>⚡ 𝐏𝐫𝐨𝐱𝐲 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬</b>
-<code>/proxy               - Check & clean proxies
-/addproxy [proxy]    - Add proxy
-/chkproxy [proxy]    - Check single proxy
-/rmproxy [proxy]     - Remove proxy
-/rmproxyindex 1,2,3  - Remove by index
-/clearproxy          - Remove all
-/getproxy            - Get all proxies</code>
-
-<b>🔑 Key Commands</b>
-<code>/redeem [key]        - Redeem premium key</code>
+<code>/gen [BIN] [count]  - Generate CCs</code>
+<code>/bin [BIN]            - BIN lookup</code>
+<code>/clean                - Remove dead/expired</code>
+<code>/split [lines]        - Split file</code>
+<code>/merge                - Merge files</code>
+<code>/validate             - Validate cards</code>
+<code>/convert [format]     - Convert format</code>
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
     
     try:
         await event.edit(premium_emoji(cmds_text), buttons=[Button.inline("🔙 Back", "home")], parse_mode='html')
@@ -2490,7 +2454,7 @@ async def tools_redirect_callback(event):
     except:
         pass
     
-    tools_text = f"""<b>🛠️ 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 𝕋𝕆𝕆𝕃𝕊</b>
+    tools_text = f"""<b>🛠️ Rowdy X Chk 𝕋𝕆𝕆𝕃𝕊</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
 <b>🔢 CC Generator</b>
@@ -2522,7 +2486,7 @@ Check Luhn validity of cards.
 Convert card formats.
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
     
     try:
         await event.edit(premium_emoji(tools_text), buttons=[Button.inline("🔙 Back", "home")], parse_mode='html')
@@ -2539,8 +2503,8 @@ async def owner_redirect_callback(event):
     owner_text = f"""<b>👤 𝕆𝕎ℕ𝔼ℝ 𝕀ℕ𝔽𝕆</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
-<b>👑 Owner:</b> <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a>
-<b>📱 Telegram:</b> <a href="tg://user?id=8704437077">@zayn_carder_003</a>
+<b>👑 Owner:</b> <a href="https://t.me/Rowdyking07">Rowdy King</a>
+<b>📱 Telegram:</b> <a href="https://t.me/Rowdyking07">@Rowdyking07</a>
 
 <b>💬 Contact for:</b>
 • Premium Access
@@ -2549,7 +2513,7 @@ async def owner_redirect_callback(event):
 • Custom Bot Development
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>🤖 <a href="tg://user?id=8704437077">𓆩𝓩𝓪𝔂𝓷𓆪𝙭¹</a></b>"""
+<b>🤖 <a href="https://t.me/Rowdyking07">Rowdy King</a></b>"""
     
     try:
         await event.edit(premium_emoji(owner_text), buttons=[Button.inline("🔙 Back", "home")], parse_mode='html')
@@ -2588,7 +2552,7 @@ async def user_stats_callback(event):
 @bot.on(events.CallbackQuery(pattern="check_more"))
 async def check_more_callback(event):
     try:
-        await event.answer("🔄 Send /chk or /cc to check more cards", alert=True)
+        await event.answer("🔄 Send /sh or /msh to check more cards", alert=True)
     except:
         pass
     
@@ -2596,13 +2560,13 @@ async def check_more_callback(event):
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 
 <b>Send cards in format:</b>
-<code>/cc card|mm|yy|cvv</code>
+<code>/sh card|mm|yy|cvv</code>
 
 <b>Or reply to .txt file with:</b>
-<code>/chk</code>
+<code>/msh</code>
 
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
-<b>⚡️ 44 workers for stable speed</b>
+<b>⚡️ 40 workers for stable speed</b>
 <b>🛠️ Tools available: /tools</b>"""
     
     try:
@@ -2689,23 +2653,15 @@ async def redeem_handler(event):
         pass
 
 # ============================================================
-# CC CHECK COMMANDS
+# CC CHECK COMMANDS (/sh)
 # ============================================================
 
-@bot.on(events.NewMessage(pattern=r'^/cc\s+'))
+@bot.on(events.NewMessage(pattern=r'^/sh\s+'))
 async def single_cc_check(event):
     user_id = event.sender_id
 
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(
-            premium_emoji("❌ <b>Premium Required</b>\n\nOnly premium users can use this bot."),
-            buttons=[Button.inline("🔑 Redeem Key", "redeem")],
-            parse_mode='html'
-        )
         return
 
     try:
@@ -2729,7 +2685,7 @@ async def single_cc_check(event):
 
     if not cards:
         await event.reply(
-            premium_emoji("❌ <b>Invalid Format</b>\n\nUse: <code>/cc card|mm|yy|cvv</code>"),
+            premium_emoji("❌ <b>Invalid Format</b>\n\nUse: <code>/sh card|mm|yy|cvv</code>"),
             parse_mode='html'
         )
         return
@@ -2739,7 +2695,7 @@ async def single_cc_check(event):
 
     status_msg = await event.reply(
         premium_emoji(
-            f"""<b>ZAYN X CHKR</b>
+            f"""<b>ROWDY X CHK</b>
 <b>━━━━━━━━━━━━━━━━━━━━━━</b>
 <b>💳 Card :</b> <code>{card}</code>
 
@@ -2755,7 +2711,6 @@ async def single_cc_check(event):
         is_otp_or_3ds = 'otp_required' in response_msg or '3ds_required' in response_msg
         
         if result['status'] == 'Charged':
-            await forward_charge_to_admin(card, result, user_id, username)
             await send_animated_result(user_id, result, 'Charged', username, is_prem)
         elif result['status'] == 'Approved':
             if is_otp_or_3ds:
@@ -2787,22 +2742,14 @@ async def single_cc_check(event):
         except:
             pass
 
-# ==================== MAIN CHECK COMMAND WITH 44 WORKERS ====================
+# ==================== MAIN CHECK COMMAND WITH 40 WORKERS (/msh) ====================
 
-@bot.on(events.NewMessage(pattern='/chk'))
+@bot.on(events.NewMessage(pattern='/msh'))
 async def check_command(event):
     user_id = event.sender_id
 
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(
-            premium_emoji("❌ <b>Premium Required</b>\n\nOnly premium users can use this bot."),
-            buttons=[Button.inline("🔑 Redeem Key", "redeem")],
-            parse_mode='html'
-        )
         return
 
     try:
@@ -2906,7 +2853,6 @@ async def check_command(event):
                 response_msg = res.get('message', '').lower()
                 is_otp_or_3ds = 'otp_required' in response_msg or '3ds_required' in response_msg
                 
-                # ✅ FIX: Send results with try-except to avoid breaking the loop
                 try:
                     if res['status'] == 'Charged':
                         all_results['charged'].append(res)
@@ -2921,7 +2867,6 @@ async def check_command(event):
                     else:
                         all_results['dead'].append(res)
                 except Exception as send_error:
-                    # Agar send mein error aata hai toh bhi card dead mein daal do
                     print(f"Send error for card {card}: {send_error}")
                     all_results['dead'].append(res)
                     
@@ -2936,7 +2881,7 @@ async def check_command(event):
                         except Exception:
                             pass
 
-        # ============ 44 WORKERS ============
+        # ============ 40 WORKERS ============
         workers = [asyncio.create_task(worker()) for _ in range(WORKER_COUNT)]
         
         while workers:
@@ -3005,10 +2950,6 @@ async def proxy_command(event):
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
 
     proxies = load_proxies()
     if not proxies:
@@ -3070,10 +3011,6 @@ async def site_command(event):
 
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
 
     sites = load_sites()
@@ -3143,10 +3080,6 @@ async def check_single_proxy(event):
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
 
     proxy = event.message.text.split(' ', 1)[1].strip()
     if not proxy:
@@ -3172,10 +3105,6 @@ async def remove_single_proxy(event):
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
 
     proxy_to_remove = event.message.text.split(' ', 1)[1].strip()
     if not proxy_to_remove:
@@ -3198,10 +3127,6 @@ async def remove_proxy_by_index(event):
     user_id = event.sender_id
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
 
     indices_str = event.message.text.split(' ', 1)[1].strip()
@@ -3243,10 +3168,6 @@ async def clear_all_proxies(event):
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
 
     current_proxies = load_proxies()
     count = len(current_proxies)
@@ -3286,10 +3207,6 @@ async def get_all_proxies(event):
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
         return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
-        return
 
     current_proxies = load_proxies()
 
@@ -3320,10 +3237,6 @@ async def add_proxy_command(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
 
     try:
@@ -3363,10 +3276,6 @@ async def remove_site_command_user(event):
     
     if is_banned(user_id):
         await event.reply(premium_emoji("❌ <b>You are banned</b>"), parse_mode='html')
-        return
-    
-    if not is_premium(user_id) and not is_admin(user_id):
-        await event.reply(premium_emoji("❌ <b>Premium Required</b>"), parse_mode='html')
         return
 
     try:
@@ -3419,7 +3328,7 @@ async def start(event):
 
 bot_start_time = time.time()
 
-print("✅ 𝗭𝗮𝘆𝗻 𝘅 𝗖𝗵𝗸𝗿 𝔹𝕆𝕋 𝕊𝕋𝔸ℝ𝕋𝔼𝔻 - VERSION 3.0")
+print("✅ Rowdy X Chk 𝔹𝕆𝕋 𝕊𝕋𝔸ℝ𝕋𝔼Ꭰ - VERSION 3.0")
 print("=" * 60)
 print(f"⚡️ {WORKER_COUNT} WORKERS CONFIGURED FOR STABLE SPEED")
 print("🛠️ 7+ TOOLS INCLUDED")
